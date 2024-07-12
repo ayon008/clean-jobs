@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-primary {
+    color: #808080 !important;
+}
+
+.login {
+    background-image: url('../../public//assets/Untitled.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    background-color: #4CAF50;
+    /* Change to your desired color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}

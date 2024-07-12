@@ -1,17 +1,9 @@
 {
-  "name": "tailwind_landing_page",
-  "description": "Landing page using next js, tailwind css and daisy UI. Template uses rich tailwind css utility classes and have components of daisy UI.",
-  "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/srobbin01/daisyui-nextjs-landing-page"
   },
   "keywords": [
     "reactjs",
@@ -21,29 +13,22 @@
     "landing=page-template",
     "nextjs"
   ],
-  "author": "srobbin01",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/srobbin01/daisyui-nextjs-landing-page/issues"
-  },
   "dependencies": {
-    "@heroicons/react": "^2.0.15",
-    "@next/font": "13.1.6",
-    "@reduxjs/toolkit": "^1.9.7",
+    "@fortawesome/fontawesome-free": "^6.5.2",
     "@tailwindcss/typography": "^0.5.9",
-    "axios": "^1.6.2",
-    "crisp-sdk-web": "^1.0.21",
+    "add": "^2.0.6",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
+    "lottie-react": "^2.4.0",
     "mixpanel-browser": "^2.48.1",
     "next": "^14.0.3",
     "nextjs-google-analytics": "^2.3.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-gtm-module": "^2.0.11",
-    "react-hotjar": "^6.1.0",
-    "react-redux": "^8.1.3",
-    "theme-change": "^2.3.0"
+    "react-icons": "^5.2.1",
+    "react-parallax": "^3.5.1",
+    "react-rating": "^2.0.5",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
