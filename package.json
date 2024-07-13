@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
+    "@react-google-maps/api": "^2.19.3",
     "@tailwindcss/typography": "^0.5.9",
     "add": "^2.0.6",
     "eslint": "8.34.0",

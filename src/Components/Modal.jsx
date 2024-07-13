@@ -7,6 +7,7 @@ const Modal = ({ id, name }) => {
         'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
         'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
     ];
+
     return (
         <dialog id={id} className="modal">
             <div className="modal-box">
@@ -19,7 +20,7 @@ const Modal = ({ id, name }) => {
                     {
                         states.map((state, i) => {
                             return (
-                                <li key={i} className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">{state}</li>
+                                <a key={i} href={`/exclusiveleads/${state}`}><li  className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">{state}</li></a>
                             )
                         })
                     }
