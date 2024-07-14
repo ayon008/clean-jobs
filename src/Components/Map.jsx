@@ -1,6 +1,5 @@
 'use client'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import { useState } from 'react';
 const Map = () => {
 
     const mapStyles = {
@@ -9,12 +8,10 @@ const Map = () => {
 
     };
 
-    const defaultCenter = {
-        lat: 0, // Default latitude
-        lng: 0 // Default longitude
+    const center = {
+        lat: 41.87028085917915, // Latitude of the city (e.g., New York City)
+        lng: -87.64401959023697 // Longitude of the city (e.g., New York City)
     };
-
-    const [center, setCenter] = useState(defaultCenter);
 
     const options = {
         zoomControl: false,

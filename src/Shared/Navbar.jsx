@@ -1,12 +1,11 @@
 'use client'
-
 import Modal from "@/Components/Modal";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import logo from "../../public/assets/Vector.png";
-import Button from "@/Components/Button";
+
 
 const Navbar = () => {
     const user = true;
@@ -53,9 +52,11 @@ const Navbar = () => {
                             <hr className="mt-2" />
                             <li className="text-sm text-primary hover:bg-white px-6 mt-4">Company Information</li>
                             <Link href={'/profile'}><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Profile</li></Link>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Email Credentials</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Email Templates</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">My Subscription</li>
+                            {/* <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Email Credentials</li> */}
+                            <a href="emailtemplates">
+                                <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Email Templates</li>
+                            </a>
+                            <a href={'/subscription'}><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">My Subscription</li></a>
                             <hr className="mt-2" />
                             <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1 mt-4">Logout</li>
                         </ul>
@@ -124,9 +125,9 @@ const Navbar = () => {
                 <button className="btn bg-green-500 text-white px-8 py-0">Pricing</button>
             </div>
 
-            <Modal id={'my_modal_3'} name={'Find Exclusive Leads By State'} />
-            <Modal id={'my_modal_4'} name={'Search LayUps By State'} />
-            <Modal id={'my_modal_5'} name={'Search By State'} />
+            <Modal id={'my_modal_3'} pathname={"exclusiveleads"} name={'Find Exclusive Leads By State'} />
+            <Modal id={'my_modal_4'} pathname={"layups"} name={'Search LayUps By State'} />
+            <Modal id={'my_modal_5'} pathname={""} name={'Search By State'} />
         </div>
     );
 };

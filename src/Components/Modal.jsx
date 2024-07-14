@@ -1,4 +1,4 @@
-const Modal = ({ id, name }) => {
+const Modal = ({ id, name, pathname }) => {
     const states = [
         'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
         'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts',
@@ -20,7 +20,7 @@ const Modal = ({ id, name }) => {
                     {
                         states.map((state, i) => {
                             return (
-                                <a key={i} href={`/exclusiveleads/${state}`}><li  className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">{state}</li></a>
+                                <a key={i} href={`/${pathname}/${state}`}><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">{state}</li></a>
                             )
                         })
                     }

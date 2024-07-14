@@ -28,3 +28,13 @@
     gap: 10px !important;
     align-items: center !important;
 }
+
+.subscription {
+    background-image: url('../../public/assets/d52f550b3b5989cf96d343f41333a3ab.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+* {
+    box-sizing: border-box !important;
+}
