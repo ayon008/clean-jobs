@@ -2,8 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-secondary {
+    color: #0F3141 !important;
+}
+
 .text-primary {
-    color: #808080 !important;
+    color: #246532 !important;
+}
+
+.bg-primary {
+    background-color: #246532 !important;
+}
+
+.inter {
+    font-family: var(--font-inter) !important;
+}
+
+.nunito {
+    font-family: var(--font-nunito) !important;
+}
+
+.poppins {
+    font-family: var(--font-poppins) !important;
+}
+
+.banner {
+    background: url('../../public/assets/fc8401c42aac2193aa4293ac4cb98056\ \(1\).jpg') lightgray 50% / cover no-repeat;
 }
 
 .login {

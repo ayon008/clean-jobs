@@ -2,18 +2,25 @@
 import Modal from "@/Components/Modal";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import logo from "../../public/assets/Vector.png";
+import { usePathname } from "next/navigation";
+import { useSpring, animated } from "@react-spring/web";
+
 
 
 const Navbar = () => {
-    const user = true;
+    const user = false;
     const [isBlue, setIsBlue] = useState(false);
 
     const handleClick = () => {
         setIsBlue(!isBlue);
     };
+
+    const pathName = usePathname();
+    console.log(pathName);
+
 
 
     const navItems = <>
@@ -44,14 +51,14 @@ const Navbar = () => {
                             <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Solicitations Lists</li>
                             <hr className="mt-2" />
                             <li className="text-sm text-primary hover:bg-white px-6 mt-4">Resources</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Blog</li>
+                            <a href="/blogs"><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Blog</li></a>
                             <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Free Lists</li>
                             <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Pay Rate Checker</li>
                             <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Cleaning Calculators</li>
                             <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Help</li>
                             <hr className="mt-2" />
                             <li className="text-sm text-primary hover:bg-white px-6 mt-4">Company Information</li>
-                            <Link href={'/profile'}><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Profile</li></Link>
+                            <a href={'/profile'}><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Profile</li></a>
                             {/* <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Email Credentials</li> */}
                             <a href="emailtemplates">
                                 <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Email Templates</li>
@@ -64,26 +71,56 @@ const Navbar = () => {
                 </>
                 :
                 <>
-                    <li>
+                    {/* <li>
                         <Link className="text-sm text-primary" href={'/login'}>Login</Link>
                     </li>
 
                     <li>
                         <Link className="text-sm text-primary" href={'/register'}>Sign Up</Link>
+                    </li> */}
+                    <li>
+                        <a className={`text-sm ${pathName === '/about' ? 'font-bold' : 'font-normal'}`} href={'/about'}>About</a>
+                    </li>
+                    <li>
+                        <a className={`text-sm ${pathName === '/blog' ? 'font-bold' : 'font-normal'}`} href={'/blog'}>Blog</a>
+                    </li>
+                    <li>
+                        <a className={`text-sm ${pathName === '/otherservices' ? 'font-bold' : 'font-normal'}`} href={'/otherservices'}>Other Services</a>
+                    </li>
+                    <li>
+                        <a className={`text-sm ${pathName === '/contact' ? 'font-bold' : 'font-normal'}`} href={'/contact'}>Contact</a>
                     </li>
 
-                    <li>
-                        <Link className="text-sm text-primary" href={'/blog'}>Blog</Link>
-                    </li>
-                    <li>
-                        <Link className="text-sm text-primary" href={'/about'}>About Us</Link>
-                    </li>
                 </>
         }
     </>
+
+    const [scrolled, setScrolled] = useState(false);
+    const props = useSpring({
+        backgroundColor: scrolled ? '#ffffff' : 'rgba(0, 0, 0, 0)',
+        boxShadow: scrolled ? '0px 8px 20px rgba(0, 0, 0, 0.2)' : '0px 0px 0px rgba(0, 0, 0, 0)',
+
+    });
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
     return (
-        <div className="navbar h-[80px] px-16">
-            <div className="navbar-start">
+        <animated.div style={props} className="navbar h-[60px] bg-inherit fixed inset-0 top-0 z-50 justify-between">
+            <div className="navbar-start w-fit">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
@@ -109,26 +146,26 @@ const Navbar = () => {
                     <Image src={logo} alt="logo" className="w-[25px] h-[40px]" />
                     <div className="text-left">
                         <span className="text-lg font-bold">
-                            <span className="text-green-500">Clean</span>Jobs
+                            <span className="text-primary">Clean</span>Jobs
                         </span>
-                        <p className="text-xs text-primary font-normal">Clean, Green, Reliable</p>
+                        <p className="text-xs text-secondary font-normal">Clean, Green, Reliable</p>
                     </div>
                 </a>
+                <div className="hidden lg:flex ml-12">
+                    <ul className={`menu menu-horizontal px-1 text-lg text-[#252C32]  inter`}>
+                        {navItems}
+                    </ul>
+                </div>
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-lg">
-                    {navItems}
-                </ul>
+            <div className="navbar-end lg:flex hidden gap-6 w-fit">
+                <a href={'/login'}><button className="font-semibold">Sign In</button></a>
+                <a href={'/register'} className="btn bg-primary text-white px-6 py-0 rounded-[100px]">Get Started Free</a>
             </div>
 
-            <div className="navbar-end lg:flex hidden">
-                <button className="btn bg-green-500 text-white px-8 py-0">Pricing</button>
-            </div>
-
-            <Modal id={'my_modal_3'} pathname={"exclusiveleads"} name={'Find Exclusive Leads By State'} />
+            {/* <Modal id={'my_modal_3'} pathname={"exclusiveleads"} name={'Find Exclusive Leads By State'} />
             <Modal id={'my_modal_4'} pathname={"layups"} name={'Search LayUps By State'} />
-            <Modal id={'my_modal_5'} pathname={""} name={'Search By State'} />
-        </div>
+            <Modal id={'my_modal_5'} pathname={""} name={'Search By State'} /> */}
+        </animated.div>
     );
 };
 
