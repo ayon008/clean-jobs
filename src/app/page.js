@@ -1,21 +1,12 @@
 import Image from "next/image";
-import image from '../../public/assets/new-opp-snip.png'
-import image2 from '../../public/assets/dm-search-snip.png'
-import image3 from '../../public/assets/solicitationsnip.png';
-import image4 from '../../public/assets/followupflow1.png'
 import Banner from "@/Components/Banner";
-import { FaHandshake, FaRobot, FaRocket, FaSearch, FaThumbsUp } from "react-icons/fa";
-import feature1 from '../../public/assets/cytonn-photography-n95VMLxqM2I-unsplash.jpg'
-import feature2 from '../../public/assets/nuno-silva-Rcsa_Rg77Tc-unsplash.jpg'
-import feature3 from '../../public/assets/arlington-research-kN_kViDchA0-unsplash.jpg'
-import feature4 from '../../public/assets/brett-jordan-LPZy4da9aRo-unsplash.jpg'
 import Reviews from "@/Components/Reviews";
 import Navbar from "@/Shared/Navbar";
 import Footer from "@/Shared/Footer";
-import Pricing from "@/Components/Pricing";
 import SectionTitles from "@/Components/SectionTitles";
 import side1 from "../../public/assets/8cfc2e02bcd7b344adf9b4a6eecd5fd9.png";
 import FaCheck from "@/Components/FaCheck";
+import Pricing from "@/Components/Pricing";
 
 
 export default function Home() {
@@ -30,7 +21,7 @@ export default function Home() {
 
       {/* Section */}
       <div className="max-w-screen-2xl mx-auto px-10">
-        <h5 className="text-secondary nunito text-center font-light text-xl mt-20">What We Offer</h5>
+        <h5 className="text-secondary nunito text-center font-light text-xl mt-20 mb-4">What We Offer</h5>
         <SectionTitles heading={'Maximize results with minimal effort'} subHeading={"Get cleaning jobs sent straight to your inbox, easily find and delegate tasks to subcontractors, and engage with decision makers automatically"} />
 
         <div className="mt-32 flex">
@@ -161,12 +152,16 @@ export default function Home() {
         <div className="mt-40">
           <SectionTitles heading={"What our customers say"} subHeading={"Thank you for your trust in Crypt Land! We are grateful for your feedback and are committed to providing the best [products/services offered]. Read what our clients have to say about their experience with us."} />
         </div>
-        <div className="px-10">
-          <Reviews />
+        <Reviews />
+        {/*  */}
+        <div className="mt-40">
+          <SectionTitles heading={"Useful utilities & Extra advantages"} subHeading={"Unlocking Efficiency: Useful Utilities and Extra Advantages to Boost Productivity and Simplify Operations"} />
+          
         </div>
-        <div>
-          <Pricing />
-        </div>
+      </div>
+      <div className="bg-[#EBFAEF] py-48  max-w-screen-2xl mx-auto">
+        <SectionTitles heading={"Find the right plan"} subHeading={"Invest in your company's future with our comprehensive financial solution. Contact us for pricing details and see how we can help you streamline your finances and reach your business goals."} />
+        <Pricing />
       </div>
       <Footer />
     </div >

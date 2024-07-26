@@ -1,51 +1,42 @@
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import Logo from "./Logo";
+
 const Footer = () => {
     return (
-        <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
-            <nav className="grid grid-flow-col gap-4">
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Jobs</a>
-                <a className="link link-hover">Press kit</a>
-            </nav>
-            <nav>
-                <div className="grid grid-flow-col gap-4">
-                    <a>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            className="fill-current">
-                            <path
-                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-                        </svg>
-                    </a>
-                    <a>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            className="fill-current">
-                            <path
-                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                        </svg>
-                    </a>
-                    <a>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            className="fill-current">
-                            <path
-                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                        </svg>
-                    </a>
+        <footer className="footer bg-[#EBF1EC] text-base-content px-10 py-16 justify-between max-w-screen-2xl mx-auto">
+            <aside className="flex flex-col justify-between">
+                <Logo />
+                <div className="my-20">
+                    <h3 className="text-2xl inter font-bold">
+                        Subscribe to our <br />
+                        newsletter
+                    </h3>
+                    <fieldset className="form-control w-80 mt-7">
+                        <div className="join">
+                            <input
+                                type="text"
+                                placeholder="Email Address"
+                                className="input input-bordered join-item rounded-none border-b-[rgba(29,30,37,0.1)]
+                                focus:border-b-black focus:border-b-2 focus:outline-none border-t-0 border-l-0 border-r-0 bg-[#EBF1EC]" />
+                            <button className="btn bg-primary text-white join-item rounded-none">Subscribe</button>
+                        </div>
+                    </fieldset>
                 </div>
-            </nav>
-            <aside className="">
-                <p className="text-sm">Copyright © {new Date().getFullYear()} - All right reserved by Clean Jobs</p>
+                <div className="flex items-center gap-14">
+                    <p className="font-medium text-base inter">Terms & Conditions</p>
+                    <p className="font-medium text-base inter">Privacy Policy</p>
+                </div>
+            </aside>
+            <aside className="flex flex-col h-full">
+                <div className="flex items-center gap-7">
+                    <p className="text-base font-medium inter">Ready to get started?</p>
+                    <button className="btn bg-primary text-white rounded-lg px-10 text-base inter font-bold">Get Started</button>
+                </div>
+                <div className="w-fit ml-auto mt-auto flex items-center gap-10">
+                    <FaFacebookF color="#246532" size={'1.5rem'} />
+                    <FaTwitter color="#246532" size={'1.5rem'} />
+                    <FaInstagram color="#246532" size={'1.5rem'} />
+                </div>
             </aside>
         </footer>
     );

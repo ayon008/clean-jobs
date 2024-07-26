@@ -83,7 +83,7 @@ const Reviews = () => {
                                             {d.author}
                                         </h3>
                                         <p className='text-primary text-sm'>{d.authorDesignation}</p>
-                                        <div>
+                                        <div className='mt-1'>
                                             <Rating
                                                 readonly
                                                 fullSymbol={<FaStar className="text-blue-500" />}
