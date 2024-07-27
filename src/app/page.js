@@ -4,9 +4,12 @@ import Reviews from "@/Components/Reviews";
 import Navbar from "@/Shared/Navbar";
 import Footer from "@/Shared/Footer";
 import SectionTitles from "@/Components/SectionTitles";
-import side1 from "../../public/assets/8cfc2e02bcd7b344adf9b4a6eecd5fd9.png";
+import side1 from "../../public/assets/597346f805a7ac1230c3c0eb176f2c90.png";
+import side2 from "../../public/assets/3a5f8d21d291fb96da9cf2d4b91d2db0.png";
+import side3 from "../../public/assets/21d3c07652283c432b6c4b982b0d04d0.png";
 import FaCheck from "@/Components/FaCheck";
 import Pricing from "@/Components/Pricing";
+import Utilities from "@/Components/Utilities";
 
 
 export default function Home() {
@@ -25,8 +28,8 @@ export default function Home() {
         <SectionTitles heading={'Maximize results with minimal effort'} subHeading={"Get cleaning jobs sent straight to your inbox, easily find and delegate tasks to subcontractors, and engage with decision makers automatically"} />
 
         <div className="mt-32 flex">
-          <div className="2xl:pr-12 2xl:pt-12 2xl:pb-12 lg:pr-8 lg:pt-8 lg:pb-8 rounded-[32px] bg-[#F4F4F4] lg:w-1/2 md:w-1/2 xl:w-fit xl:mx-auto 2xl:w-fit 2xl:mx-auto">
-            <Image src={side1} alt="" />
+          <div className="w-1/2 pb-10 pt-10 pr-10 bg-[#F4F4F4] rounded-[32px]">
+            <Image src={side2} className="h-[400px] w-auto" alt="" />
           </div>
           <div className="space-y-8 w-1/2 my-auto pl-24">
             <h5 className="text-primary poppins font-medium text-lg">Upcoming Cleaning Project Access</h5>
@@ -56,8 +59,8 @@ export default function Home() {
         </div>
 
         <div className="mt-32 flex flex-row-reverse">
-          <div className="2xl:pl-12 2xl:pt-12 2xl:pb-12 lg:pl-8 lg:pt-8 lg:pb-8 rounded-[32px] bg-[#F4F4F4] lg:w-1/2 md:w-1/2 xl:w-fit xl:mx-auto 2xl:w-fit 2xl:mx-auto">
-            <Image src={side1} alt="" />
+          <div className="w-1/2 pb-10 pt-10 pl-10 bg-[#F4F4F4] rounded-[32px]">
+            <Image src={side2} className="h-[400px] w-auto" alt="" />
           </div>
           <div className="space-y-8 w-1/2 my-auto pr-24">
             <h5 className="text-primary poppins font-medium text-lg">Local Decision Maker Discovery</h5>
@@ -87,8 +90,8 @@ export default function Home() {
         </div>
 
         <div className="mt-32 flex">
-          <div className="2xl:pr-12 2xl:pt-12 2xl:pb-12 lg:pr-8 lg:pt-8 lg:pb-8 rounded-[32px] bg-[#F4F4F4] lg:w-1/2 md:w-1/2 xl:w-fit xl:mx-auto 2xl:w-fit 2xl:mx-auto">
-            <Image src={side1} alt="" />
+          <div className="w-1/2 bg-[#F4F4F4] rounded-[32px]">
+            <Image src={side1} className="w-auto mx-auto h-[500px]" alt="" />
           </div>
           <div className="space-y-6 w-1/2 my-auto pl-24">
             <h5 className="text-primary poppins font-medium text-lg">Connect with Cleaning Subcontractors</h5>
@@ -118,8 +121,8 @@ export default function Home() {
         </div>
 
         <div className="mt-32 flex flex-row-reverse">
-          <div className="2xl:pl-12 2xl:pt-12 2xl:pb-12 lg:pl-8 lg:pt-8 lg:pb-8 rounded-[32px] bg-[#F4F4F4] lg:w-1/2 md:w-1/2 xl:w-fit xl:mx-auto 2xl:w-fit 2xl:mx-auto">
-            <Image src={side1} alt="" />
+          <div className="w-1/2 bg-[#F4F4F4] py-10 rounded-[32px]">
+            <Image src={side3} className="w-auto mx-auto h-[520px]" alt="" />
           </div>
           <div className="space-y-8 w-1/2 my-auto pr-24">
             <h5 className="text-primary poppins font-medium text-lg">Automated Follow-Up Emails</h5>
@@ -156,7 +159,7 @@ export default function Home() {
         {/*  */}
         <div className="mt-40">
           <SectionTitles heading={"Useful utilities & Extra advantages"} subHeading={"Unlocking Efficiency: Useful Utilities and Extra Advantages to Boost Productivity and Simplify Operations"} />
-          
+          <Utilities />
         </div>
       </div>
       <div className="bg-[#EBFAEF] py-48  max-w-screen-2xl mx-auto">

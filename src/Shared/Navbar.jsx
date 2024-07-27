@@ -110,7 +110,7 @@ const Navbar = () => {
                 setScrolled(false);
             }
         };
-
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -153,10 +153,6 @@ const Navbar = () => {
                 <a href={'/login'}><button className="font-semibold">Sign In</button></a>
                 <a href={'/register'} className="btn bg-primary text-white px-6 py-0 rounded-[100px]">Get Started Free</a>
             </div>
-
-            {/* <Modal id={'my_modal_3'} pathname={"exclusiveleads"} name={'Find Exclusive Leads By State'} />
-            <Modal id={'my_modal_4'} pathname={"layups"} name={'Search LayUps By State'} />
-            <Modal id={'my_modal_5'} pathname={""} name={'Search By State'} /> */}
         </animated.div>
     );
 };

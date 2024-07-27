@@ -1,7 +1,57 @@
+'use client';
+
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import TickCircle from "@/Components/TickCircle";
-import Link from "next/link";
+import useAuth from '@/Hooks/useAuth';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
+import { redirect } from 'next/navigation';
 
 const Register = () => {
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { signUp, user } = useAuth();
+    console.log(user);
+
+    const onSubmit = data => {
+        const email = data.email;
+        const password = data.password;
+        const confirmPassword = data.confirmPassword;
+        if (password === confirmPassword) {
+            signUp(email, password)
+                .then(res => {
+                    const user = res.user;
+                    console.log(user);
+                    fetch('http://localhost:5000/user', {
+                        method: 'POST',
+                        headers: { 'content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            userId: user.uid,
+                            ...data
+                        })
+                    })
+                        .then(res => {
+                            console.log(res);
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: "Signed Up",
+                                showConfirmButton: false,
+                                timer: 1500,
+                            });
+                            redirect('/')
+                            reset();
+                        })
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    };
+
+
+
+
     const states = [
         'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
         'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts',
@@ -12,7 +62,7 @@ const Register = () => {
     ];
 
     return (
-        <div className="h-screen login lg:px-16">
+        <div className="h-screen login lg:px-16 max-w-screen-2xl mx-auto">
             <div className="flex h-full items-start justify-center">
                 <div className="w-[40%] h-full flex flex-col">
                     <div className="my-auto">
@@ -26,33 +76,40 @@ const Register = () => {
                                 <p className='text-green-500 text-xl mt-6'>Free</p>
                             </div>
                             <ul className='mt-6 space-y-3 text-left text-xs'>
-                                <li className='flex gap-2'>
-                                    <TickCircle className="" /><span className='text-left w-fit'>View 1 cleaning opportunity per 30 days.</span>
+                                <li className='flex gap-2 items-center'>
+                                    <TickCircle className="" />
+                                    <span className='text-left w-fit text-sm font-medium'>View 1 cleaning opportunity per 30 days.</span>
                                 </li>
-                                <li className='flex gap-2'>
-                                    <TickCircle className="" /><span className='text-left w-fit'>Search/view 5 decision makers per search.</span>
+                                <li className='flex gap-2 items-center'>
+                                    <TickCircle className="" />
+                                    <span className='text-left w-fit text-sm font-medium'>Search/view 5 decision makers per search.</span>
                                 </li>
-                                <li className='flex gap-2'>
-                                    <TickCircle className="" /><span className='text-left w-fit'>Cleaning opportunities sent to your inbox.</span>
+                                <li className='flex gap-2 items-center'>
+                                    <TickCircle className="" />
+                                    <span className='text-left w-fit text-sm font-medium'>Cleaning opportunities sent to your inbox.</span>
                                 </li>
-                                <li className='flex gap-2'>
-                                    <TickCircle className="" /><span className='text-left w-fit'>Cleaning contract calculators</span>
+                                <li className='flex gap-2 items-center'>
+                                    <TickCircle className="" />
+                                    <span className='text-left w-fit text-sm font-medium'>Cleaning contract calculators</span>
                                 </li>
-                                <li className='flex gap-2'>
-                                    <TickCircle className="" /><span className='text-left w-fit'>Create 1 Lead List with up to 45 total leads.</span>
+                                <li className='flex gap-2 items-center'>
+                                    <TickCircle className="" />
+                                    <span className='text-left w-fit text-sm font-medium'>Create 1 Lead List with up to 45 total leads.</span>
                                 </li>
-                                <li className='flex gap-2'>
-                                    <TickCircle className="" /><span className='text-left w-fit'>Store & manage up to 3 cleaning opportunities/solicitations.</span>
+                                <li className='flex gap-2 items-center'>
+                                    <TickCircle className="" />
+                                    <span className='text-left w-fit text-sm font-medium'>Store & manage up to 3 cleaning opportunities/solicitations.</span>
                                 </li>
-                                <li className='flex gap-2'>
-                                    <TickCircle className="" /><span className='text-left w-fit'>Post up to 3 solicitations.</span>
+                                <li className='flex gap-2 items-center'>
+                                    <TickCircle className="" />
+                                    <span className='text-left w-fit text-sm font-medium'>Post up to 3 solicitations.</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div className="w-[60%] h-full flex flex-col">
-                    <form className="w-full p-8 my-auto">
+                    <form className="w-full p-8 my-auto" onSubmit={handleSubmit(onSubmit)}>
                         <label htmlFor="" className="text-2xl text-blue-400 font-semibold">Create an account</label>
                         <div className="grid grid-cols-2 grid-rows-3 gap-6">
                             <div className="form-control">
@@ -60,7 +117,13 @@ const Register = () => {
                                     <div className="label">
                                         <span className="label-text text-base text-primary">Company Name</span>
                                     </div>
-                                    <input type="text" placeholder="SparkleClean Solutions" className="input input-bordered w-full" />
+                                    <input
+                                        type="text"
+                                        placeholder="SparkleClean Solutions"
+                                        className="input input-bordered w-full"
+                                        {...register('companyName', { required: 'Company Name is required' })}
+                                    />
+                                    {errors.companyName && <p className="text-red-500 text-sm">{errors.companyName.message}</p>}
                                 </label>
                             </div>
                             <div className="form-control">
@@ -68,7 +131,13 @@ const Register = () => {
                                     <div className="label">
                                         <span className="label-text text-base text-primary">E-Mail Address</span>
                                     </div>
-                                    <input type="email" placeholder="contact@sparklecleansolutions.com" className="input input-bordered w-full" />
+                                    <input
+                                        type="email"
+                                        placeholder="contact@sparklecleansolutions.com"
+                                        className="input input-bordered w-full"
+                                        {...register('email', { required: 'E-Mail Address is required' })}
+                                    />
+                                    {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                                 </label>
                             </div>
                             <div className="form-control">
@@ -76,12 +145,16 @@ const Register = () => {
                                     <div className="label">
                                         <span className="label-text text-base text-primary">Service State</span>
                                     </div>
-                                    <select className="select text-primary text-base select-bordered w-full ">
+                                    <select
+                                        className="select text-primary text-base select-bordered w-full"
+                                        {...register('serviceState', { required: 'Service State is required' })}
+                                    >
                                         <option disabled selected>Pick Your State</option>
                                         {
-                                            states?.map((state, index) => <option key={index} value={state}>{state}</option>)
+                                            states.map((state, index) => <option key={index} value={state}>{state}</option>)
                                         }
                                     </select>
+                                    {errors.serviceState && <p className="text-red-500 text-sm">{errors.serviceState.message}</p>}
                                 </label>
                             </div>
                             <div className="form-control">
@@ -89,7 +162,13 @@ const Register = () => {
                                     <div className="label">
                                         <span className="label-text text-base text-primary">What cities do you service?</span>
                                     </div>
-                                    <input type="text" placeholder="New York City" className="input input-bordered w-full" />
+                                    <input
+                                        type="text"
+                                        placeholder="New York City"
+                                        className="input input-bordered w-full"
+                                        {...register('serviceCities', { required: 'Service Cities are required' })}
+                                    />
+                                    {errors.serviceCities && <p className="text-red-500 text-sm">{errors.serviceCities.message}</p>}
                                 </label>
                             </div>
                             <div className="form-control">
@@ -97,7 +176,13 @@ const Register = () => {
                                     <div className="label">
                                         <span className="label-text text-base text-primary">Password</span>
                                     </div>
-                                    <input type="text" placeholder="" className="input input-bordered w-full" />
+                                    <input
+                                        type="password"
+                                        placeholder="password"
+                                        className="input input-bordered w-full"
+                                        {...register('password', { required: 'Password is required' })}
+                                    />
+                                    {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                                 </label>
                             </div>
                             <div className="form-control">
@@ -105,12 +190,18 @@ const Register = () => {
                                     <div className="label">
                                         <span className="label-text text-base">Confirm Password</span>
                                     </div>
-                                    <input type="text" placeholder="" className="input input-bordered w-full" />
+                                    <input
+                                        type="password"
+                                        placeholder="confirm password"
+                                        className="input input-bordered w-full"
+                                        {...register('confirmPassword', { required: 'Confirm Password is required' })}
+                                    />
+                                    {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword.message}</p>}
                                 </label>
                             </div>
                         </div>
                         <input type="submit" className="btn btn-outline text-green-600 w-full text-xl mt-6" value="Sign Up!" />
-                        <Link href={'/login'}><p className="text-center mt-6 cursor-pointer">Already have an account?</p></Link>
+                        <a href={'/login'}><p className="text-center mt-6 cursor-pointer">Already have an account?</p></a>
                     </form>
                 </div>
             </div>
