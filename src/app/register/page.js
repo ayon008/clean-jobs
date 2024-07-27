@@ -10,8 +10,7 @@ import { redirect } from 'next/navigation';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const { signUp, user } = useAuth();
-    console.log(user);
+    const { signUp, updateUserProfile } = useAuth();
 
     const onSubmit = data => {
         const email = data.email;
@@ -21,26 +20,28 @@ const Register = () => {
             signUp(email, password)
                 .then(res => {
                     const user = res.user;
-                    console.log(user);
-                    fetch('http://localhost:5000/user', {
-                        method: 'POST',
-                        headers: { 'content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            userId: user.uid,
-                            ...data
-                        })
-                    })
-                        .then(res => {
-                            console.log(res);
-                            Swal.fire({
-                                position: "center",
-                                icon: "success",
-                                title: "Signed Up",
-                                showConfirmButton: false,
-                                timer: 1500,
-                            });
-                            redirect('/')
-                            reset();
+                    updateUserProfile(data.companyName)
+                        .then(() => {
+                            fetch('http://localhost:5000/user', {
+                                method: 'POST',
+                                headers: { 'content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    userId: user.uid,
+                                    ...data
+                                })
+                            })
+                                .then(res => {
+                                    console.log(res);
+                                    Swal.fire({
+                                        position: "center",
+                                        icon: "success",
+                                        title: "Signed Up",
+                                        showConfirmButton: false,
+                                        timer: 1500,
+                                    });
+                                    redirect('/')
+                                    reset();
+                                })
                         })
                 })
                 .catch(error => {

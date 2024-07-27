@@ -1,26 +1,146 @@
 'use client'
-import Modal from "@/Components/Modal";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { useSpring, animated } from "@react-spring/web";
 import Logo from "./Logo";
-
-
+import { MdOutlineNotifications } from 'react-icons/md';
+import useAuth from "@/Hooks/useAuth";
+import Dropdown from "@/Components/Dropdown";
+import ArrowRight from "@/Components/ArrowRight";
 
 const Navbar = () => {
-    const user = false;
-    const [isBlue, setIsBlue] = useState(false);
-
-    const handleClick = () => {
-        setIsBlue(!isBlue);
-    };
+    const { user } = useAuth();
+    console.log(user);
 
     const pathName = usePathname();
     console.log(pathName);
 
+    const firstLetter = user?.displayName[0];
+
+    const navStarts = <>
+        <li>
+            <a className={`text-sm ${pathName === '/about' ? 'font-bold' : 'font-normal'}`} href={'/about'}>About</a>
+        </li>
+        {
+            user ?
+                <>
+                    <li className="dropdown dropdown-hover">
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/' ? 'font-bold' : 'font-normal'}`}>
+                            <span>Home</span>
+                            <Dropdown color={"#6E7C87"} />
+                        </a>
+                        <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-72 px-0 py-2 rounded-lg">
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Dashboard</a></li>
+                        </ul>
+
+                    </li>
+                    <li>
+
+                        <ul className="hidden">
+                            <li>Lead List</li>
+                            <li>Master List</li>
+                            <li>Solicitations List</li>
+                        </ul>
+                    </li>
+                    <li className="dropdown dropdown-hover">
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/list' ? 'font-bold' : 'font-normal'}`}>
+                            <span>List</span>
+                            <Dropdown color={"#6E7C87"} />
+                        </a>
+                        <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Lead Lists</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Master List</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Solicitations List</a></li>
+                        </ul>
+                    </li>
+                    <li className="dropdown dropdown-hover">
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/resources' ? 'font-bold' : 'font-normal'}`} href={'/resources'}>
+                            <span>Resources</span>
+                            <Dropdown color={"#6E7C87"} />
+                        </a>
+                        <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Blog</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Free Lists</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Pay Rate Checker</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Cleaning Calculators</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Help</a></li>
+                        </ul>
+                    </li>
+                    <li className="dropdown dropdown-hover">
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/company-information' ? 'font-bold' : 'font-normal'}`} href={'/company-information'}>
+                            <span>Company Information</span>
+                            <Dropdown color={"#6E7C87"} />
+                        </a>
+                        <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Profile</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Messages</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Credentials</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Templates</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">My Subscription</a></li>
+                        </ul>
+                    </li>
+                    <li className="dropdown dropdown-hover">
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/search' ? 'font-bold' : 'font-normal'}`} href={'/search'}>
+                            <span>Search</span>
+                            <Dropdown color={"#6E7C87"} />
+                        </a>
+                        <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Exclusive Leads</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">LayUps (Warm leads)</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Opportunities</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Single Decision Maker</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Decision Makers</a></li>
+                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Local Businesses</a></li>
+                        </ul>
+                    </li>
+
+                </>
+                :
+                <>
+                    <li>
+                        <a className={`text-sm ${pathName === '/blog' ? 'font-bold' : 'font-normal'}`} href={'/blog'}>Blog</a>
+                    </li>
+                    <li>
+                        <a className={`text-sm ${pathName === '/otherservices' ? 'font-bold' : 'font-normal'}`} href={'/otherservices'}>Other Services</a>
+                    </li>
+                    <li>
+                        <a className={`text-sm ${pathName === '/contact' ? 'font-bold' : 'font-normal'}`} href={'/contact'}>Contact</a>
+                    </li>
+                </>
+        }
+        <li>
+            <a className={`text-sm gap-0 disabled-link text-primary ${pathName === '/other-services' ? 'font-bold' : 'font-normal'}`} href={'/other-services'}>
+                <span>Other Services</span>
+                <ArrowRight />
+            </a>
+        </li>
+    </>
+
+    const navEnds =
+        <>
+            {
+                user ?
+                    <>
+                        <MdOutlineNotifications size={24} />
+                        <div className="flex items-center gap-2">
+                            <div className="w-[32px] relative h-[32px] rounded-full bg-primary  text-white text-base font-normal">
+                                <span className="absolute top-1/2 right-1/2 transform -translate-y-1/2 translate-x-1/2">{firstLetter}</span>
+                            </div>
+                            <div>
+                                <h4 className="text-sm inter font-semibold w-fit">{user?.displayName}</h4>
+                            </div>
+                            <Dropdown color={'black'} />
+                        </div>
+                    </>
+                    :
+                    <>
+                        <a href={'/login'}><button className="font-semibold">Sign In</button></a>
+                        <a href={'/register'} className="btn bg-primary text-white px-6 py-0 rounded-[100px]">Get Started Free</a>
+                    </>
+            }
+        </>
 
 
     const navItems = <>
@@ -78,18 +198,7 @@ const Navbar = () => {
                     <li>
                         <Link className="text-sm text-primary" href={'/register'}>Sign Up</Link>
                     </li> */}
-                    <li>
-                        <a className={`text-sm ${pathName === '/about' ? 'font-bold' : 'font-normal'}`} href={'/about'}>About</a>
-                    </li>
-                    <li>
-                        <a className={`text-sm ${pathName === '/blog' ? 'font-bold' : 'font-normal'}`} href={'/blog'}>Blog</a>
-                    </li>
-                    <li>
-                        <a className={`text-sm ${pathName === '/otherservices' ? 'font-bold' : 'font-normal'}`} href={'/otherservices'}>Other Services</a>
-                    </li>
-                    <li>
-                        <a className={`text-sm ${pathName === '/contact' ? 'font-bold' : 'font-normal'}`} href={'/contact'}>Contact</a>
-                    </li>
+
 
                 </>
         }
@@ -119,7 +228,7 @@ const Navbar = () => {
 
 
     return (
-        <animated.div style={props} className="navbar h-[60px] bg-inherit fixed inset-0 top-0 z-50 justify-between">
+        <animated.div style={props} className="navbar h-[60px] bg-inherit fixed inset-0 top-0 z-50 justify-between py-10">
             <div className="navbar-start w-fit">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -138,20 +247,19 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        {navItems}
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow navStart">
+                        {navStarts}
                     </ul>
                 </div>
                 <Logo />
-                <div className="hidden lg:flex ml-12">
+                <div className="hidden lg:flex 2xl:ml-12 ml-6">
                     <ul className={`menu menu-horizontal px-1 text-lg text-[#252C32]  inter`}>
-                        {navItems}
+                        {navStarts}
                     </ul>
                 </div>
             </div>
             <div className="navbar-end lg:flex hidden gap-6 w-fit">
-                <a href={'/login'}><button className="font-semibold">Sign In</button></a>
-                <a href={'/register'} className="btn bg-primary text-white px-6 py-0 rounded-[100px]">Get Started Free</a>
+                {navEnds}
             </div>
         </animated.div>
     );

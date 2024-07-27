@@ -37,6 +37,9 @@
     background-size: cover;
 }
 
+.disabled-link {
+    pointer-events: none !important;
+}
 
 
 .custom-file-input::-webkit-file-upload-button {

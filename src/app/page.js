@@ -28,7 +28,7 @@ export default function Home() {
         <SectionTitles heading={'Maximize results with minimal effort'} subHeading={"Get cleaning jobs sent straight to your inbox, easily find and delegate tasks to subcontractors, and engage with decision makers automatically"} />
 
         <div className="mt-32 flex">
-          <div className="w-1/2 pb-10 pt-10 pr-10 bg-[#F4F4F4] rounded-[32px]">
+          <div className="w-fit pb-10 pt-10 pr-10 bg-[#F4F4F4] rounded-[32px]">
             <Image src={side2} className="h-[400px] w-auto" alt="" />
           </div>
           <div className="space-y-8 w-1/2 my-auto pl-24">
@@ -59,7 +59,7 @@ export default function Home() {
         </div>
 
         <div className="mt-32 flex flex-row-reverse">
-          <div className="w-1/2 pb-10 pt-10 pl-10 bg-[#F4F4F4] rounded-[32px]">
+          <div className="w-fit pb-10 pt-10 pl-10 bg-[#F4F4F4] rounded-[32px]">
             <Image src={side2} className="h-[400px] w-auto" alt="" />
           </div>
           <div className="space-y-8 w-1/2 my-auto pr-24">
@@ -90,7 +90,7 @@ export default function Home() {
         </div>
 
         <div className="mt-32 flex">
-          <div className="w-1/2 bg-[#F4F4F4] rounded-[32px]">
+          <div className="w-fit bg-[#F4F4F4] rounded-[32px]">
             <Image src={side1} className="w-auto mx-auto h-[500px]" alt="" />
           </div>
           <div className="space-y-6 w-1/2 my-auto pl-24">
@@ -121,7 +121,7 @@ export default function Home() {
         </div>
 
         <div className="mt-32 flex flex-row-reverse">
-          <div className="w-1/2 bg-[#F4F4F4] py-10 rounded-[32px]">
+          <div className="w-fit bg-[#F4F4F4] py-10 rounded-[32px]">
             <Image src={side3} className="w-auto mx-auto h-[520px]" alt="" />
           </div>
           <div className="space-y-8 w-1/2 my-auto pr-24">

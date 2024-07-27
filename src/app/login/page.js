@@ -15,8 +15,8 @@ const Page = () => {
             .then(res => {
                 const user = res.user;
                 console.log(user);
+                redirect('http://localhost:3000/')
                 reset();
-                redirect('/')
             })
             .catch(err => {
                 // Handle error
