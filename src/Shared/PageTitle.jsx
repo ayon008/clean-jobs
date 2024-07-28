@@ -1,15 +1,8 @@
-import { FaCircle } from 'react-icons/fa';
-
-const PageTitle = ({ name }) => {
+const PageTitle = ({ heading, subHeading }) => {
     return (
         <div>
-            <h1 className="text-4xl text-center">{name}</h1>
-            <div className="flex items-center gap-2 w-fit mx-auto mt-4">
-                <FaCircle size={'0.5rem'} className="text-blue-400" />
-                <FaCircle size={'0.5rem'} className="text-blue-400" />
-                <FaCircle size={'0.5rem'} className="text-blue-400" />
-                <FaCircle size={'0.5rem'} className="text-blue-400" />
-            </div>
+            <h1 className="inter text-6xl font-bold">{heading}</h1>
+            <p className="text-xl font-normal mt-2">{subHeading}</p>
         </div>
     );
 };

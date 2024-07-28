@@ -1,24 +1,20 @@
 import Image from "next/image";
 import Banner from "@/Components/Banner";
 import Reviews from "@/Components/Reviews";
-import Navbar from "@/Shared/Navbar";
 import Footer from "@/Shared/Footer";
-import SectionTitles from "@/Components/SectionTitles";
+
 import side1 from "../../public/assets/597346f805a7ac1230c3c0eb176f2c90.png";
 import side2 from "../../public/assets/3a5f8d21d291fb96da9cf2d4b91d2db0.png";
 import side3 from "../../public/assets/21d3c07652283c432b6c4b982b0d04d0.png";
 import FaCheck from "@/Components/FaCheck";
 import Pricing from "@/Components/Pricing";
 import Utilities from "@/Components/Utilities";
+import SectionTitles from "@/Components/SectionTitles";
 
 
 export default function Home() {
   return (
-    <div className="relative">
-
-      {/* Navbar */}
-      <Navbar />
-
+    <div>
       {/* Banner */}
       <Banner />
 

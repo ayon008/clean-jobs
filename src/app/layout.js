@@ -1,6 +1,7 @@
 import { Inter, Nunito, Poppins } from 'next/font/google'
 import './globals.css'
 import AuthProvider from '@/Providers/AuthProvider'
+import Navbar from '@/Shared/Navbar'
 
 
 export const inter = Inter({
@@ -35,6 +36,8 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${poppins.variable} ${nunito.variable}`}>
         <main className='bg-white'>
           <AuthProvider>
+            {/* Navbar */}
+            <Navbar />
             {children}
           </AuthProvider>
         </main>

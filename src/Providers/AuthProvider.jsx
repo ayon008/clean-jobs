@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from "@/js/firebase.init";
+import useAxiosPublic from "@/Hooks/useAxiosPublic";
 
 export const AuthContext = createContext();
 
@@ -30,19 +31,29 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+    const axiosPublic = useAxiosPublic();
+
     useEffect(() => {
         const subscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
                 setLoader(false);
+                axiosPublic.post('/userEmail', { email: currentUser.email })
+                    .then(res => {
+                        console.log(res);
+                        const { token } = res?.data;
+                        console.log(token);
+                        localStorage.setItem('token', token);
+                    })
             }
             else {
                 setUser(null);
                 setLoader(false);
+                localStorage.removeItem('token');
             }
         })
         return () => subscribe();
-    }, [auth])
+    }, [auth, axiosPublic])
 
     const authInfo = {
         signUp,

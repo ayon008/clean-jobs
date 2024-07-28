@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import logo from "../../public/assets/Vector.png";
+import Link from 'next/link';
 
 const Logo = () => {
     return (
-        <a href="/" className="btn btn-ghost">
+        <Link href="/" className="btn btn-ghost">
             <Image src={logo} alt="logo" className="w-[25px] h-[40px]" />
             <div className="text-left">
                 <span className="text-lg font-bold">
@@ -11,7 +12,7 @@ const Logo = () => {
                 </span>
                 <p className="text-xs text-secondary font-normal">Clean, Green, Reliable</p>
             </div>
-        </a>
+        </Link>
     );
 };
 

@@ -1,5 +1,4 @@
 'use client'
-
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useSpring, animated } from "@react-spring/web";
@@ -84,19 +83,19 @@ const Navbar = () => {
                         </a>
                         <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
                             <li>
-                                <Link href="/profile" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Profile</Link>
+                                <Link href="/company-information/profile" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Profile</Link>
                             </li>
                             <li>
-                                <Link href="/messages" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Messages</Link>
+                                <Link href="/company-information/messages" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Messages</Link>
                             </li>
                             <li>
-                                <Link href="/email-credentials" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Credentials</Link>
+                                <Link href="/company-information/email-credentials" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Credentials</Link>
                             </li>
                             <li>
-                                <Link href="/email-templates" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Templates</Link>
+                                <Link href="/company-information/email-templates" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Templates</Link>
                             </li>
                             <li>
-                                <Link href="/my-subscription" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">My Subscription</Link>
+                                <Link href="/company-information/my-subscription" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">My Subscription</Link>
                             </li>
                         </ul>
                     </li>
@@ -182,8 +181,8 @@ const Navbar = () => {
                     </>
                     :
                     <>
-                        <a href={'/login'}><button className="font-semibold">Sign In</button></a>
-                        <a href={'/register'} className="btn bg-primary text-white px-6 py-0 rounded-[100px]">Get Started Free</a>
+                        <Link href={'/login'}><button className="font-semibold">Sign In</button></Link>
+                        <Link href={'/register'} className="btn bg-primary text-white px-6 py-0 rounded-[100px]">Get Started Free</Link>
                     </>
             }
         </>
