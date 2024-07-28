@@ -36,6 +36,10 @@ const AuthProvider = ({ children }) => {
                 setUser(currentUser);
                 setLoader(false);
             }
+            else {
+                setUser(null);
+                setLoader(false);
+            }
         })
         return () => subscribe();
     }, [auth])

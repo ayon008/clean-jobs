@@ -90,7 +90,7 @@ export default function Home() {
         </div>
 
         <div className="mt-32 flex">
-          <div className="w-fit bg-[#F4F4F4] rounded-[32px]">
+          <div className="w-1/2 bg-[#F4F4F4] rounded-[32px]">
             <Image src={side1} className="w-auto mx-auto h-[500px]" alt="" />
           </div>
           <div className="space-y-6 w-1/2 my-auto pl-24">
@@ -121,7 +121,7 @@ export default function Home() {
         </div>
 
         <div className="mt-32 flex flex-row-reverse">
-          <div className="w-fit bg-[#F4F4F4] py-10 rounded-[32px]">
+          <div className="w-1/2 bg-[#F4F4F4] py-10 rounded-[32px]">
             <Image src={side3} className="w-auto mx-auto h-[520px]" alt="" />
           </div>
           <div className="space-y-8 w-1/2 my-auto pr-24">

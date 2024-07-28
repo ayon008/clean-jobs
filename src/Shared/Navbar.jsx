@@ -1,7 +1,6 @@
 'use client'
-import Link from "next/link";
+
 import { useEffect, useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { useSpring, animated } from "@react-spring/web";
 import Logo from "./Logo";
@@ -9,10 +8,19 @@ import { MdOutlineNotifications } from 'react-icons/md';
 import useAuth from "@/Hooks/useAuth";
 import Dropdown from "@/Components/Dropdown";
 import ArrowRight from "@/Components/ArrowRight";
+import Link from "next/link";
 
 const Navbar = () => {
-    const { user } = useAuth();
+    const { user, logOut } = useAuth();
     console.log(user);
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     const pathName = usePathname();
     console.log(pathName);
@@ -21,7 +29,7 @@ const Navbar = () => {
 
     const navStarts = <>
         <li>
-            <a className={`text-sm ${pathName === '/about' ? 'font-bold' : 'font-normal'}`} href={'/about'}>About</a>
+            <Link className={`text-sm mr-3 ${pathName === '/about' ? 'font-bold' : 'font-normal'}`} href={'/about'}>About</Link>
         </li>
         {
             user ?
@@ -32,16 +40,7 @@ const Navbar = () => {
                             <Dropdown color={"#6E7C87"} />
                         </a>
                         <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-72 px-0 py-2 rounded-lg">
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Dashboard</a></li>
-                        </ul>
-
-                    </li>
-                    <li>
-
-                        <ul className="hidden">
-                            <li>Lead List</li>
-                            <li>Master List</li>
-                            <li>Solicitations List</li>
+                            <li><Link href={'/dashboard'} className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Dashboard</Link></li>
                         </ul>
                     </li>
                     <li className="dropdown dropdown-hover">
@@ -50,9 +49,9 @@ const Navbar = () => {
                             <Dropdown color={"#6E7C87"} />
                         </a>
                         <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Lead Lists</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Master List</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Solicitations List</a></li>
+                            <li><Link href={'leadlists'} className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Lead Lists</Link></li>
+                            <li><Link href={'masterlist'} className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Master List</Link></li>
+                            <li><Link href={'solicitationsList'} className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Solicitations List</Link></li>
                         </ul>
                     </li>
                     <li className="dropdown dropdown-hover">
@@ -61,11 +60,21 @@ const Navbar = () => {
                             <Dropdown color={"#6E7C87"} />
                         </a>
                         <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Blog</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Free Lists</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Pay Rate Checker</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Cleaning Calculators</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Help</a></li>
+                            <li>
+                                <Link href="/blog" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Blog</Link>
+                            </li>
+                            <li>
+                                <Link href="/free-lists" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Free Lists</Link>
+                            </li>
+                            <li>
+                                <Link href="/pay-rate-checker" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Pay Rate Checker</Link>
+                            </li>
+                            <li>
+                                <Link href="/cleaning-calculators" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Cleaning Calculators</Link>
+                            </li>
+                            <li>
+                                <Link href="/help" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Help</Link>
+                            </li>
                         </ul>
                     </li>
                     <li className="dropdown dropdown-hover">
@@ -74,11 +83,21 @@ const Navbar = () => {
                             <Dropdown color={"#6E7C87"} />
                         </a>
                         <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Profile</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Messages</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Credentials</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Templates</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">My Subscription</a></li>
+                            <li>
+                                <Link href="/profile" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Profile</Link>
+                            </li>
+                            <li>
+                                <Link href="/messages" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Messages</Link>
+                            </li>
+                            <li>
+                                <Link href="/email-credentials" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Credentials</Link>
+                            </li>
+                            <li>
+                                <Link href="/email-templates" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Email Templates</Link>
+                            </li>
+                            <li>
+                                <Link href="/my-subscription" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">My Subscription</Link>
+                            </li>
                         </ul>
                     </li>
                     <li className="dropdown dropdown-hover">
@@ -87,12 +106,24 @@ const Navbar = () => {
                             <Dropdown color={"#6E7C87"} />
                         </a>
                         <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Exclusive Leads</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">LayUps (Warm leads)</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Opportunities</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Single Decision Maker</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Decision Makers</a></li>
-                            <li><a className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Local Businesses</a></li>
+                            <li>
+                                <Link href="/exclusive-leads" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Exclusive Leads</Link>
+                            </li>
+                            <li>
+                                <Link href="/layups" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">LayUps (Warm leads)</Link>
+                            </li>
+                            <li>
+                                <Link href="/opportunities" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Opportunities</Link>
+                            </li>
+                            <li>
+                                <Link href="/single-decision-maker" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Single Decision Maker</Link>
+                            </li>
+                            <li>
+                                <Link href="/decision-makers" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Decision Makers</Link>
+                            </li>
+                            <li>
+                                <Link href="/local-businesses" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Local Businesses</Link>
+                            </li>
                         </ul>
                     </li>
 
@@ -100,16 +131,23 @@ const Navbar = () => {
                 :
                 <>
                     <li>
-                        <a className={`text-sm ${pathName === '/blog' ? 'font-bold' : 'font-normal'}`} href={'/blog'}>Blog</a>
+                        <Link href="/blog" className={`text-sm ${pathName === '/blog' ? 'font-bold' : 'font-normal'}`}>
+                            Blog
+                        </Link>
                     </li>
                     <li>
-                        <a className={`text-sm ${pathName === '/otherservices' ? 'font-bold' : 'font-normal'}`} href={'/otherservices'}>Other Services</a>
+                        <Link href="/otherservices" className={`text-sm ${pathName === '/otherservices' ? 'font-bold' : 'font-normal'}`}>
+                            Other Services
+                        </Link>
                     </li>
                     <li>
-                        <a className={`text-sm ${pathName === '/contact' ? 'font-bold' : 'font-normal'}`} href={'/contact'}>Contact</a>
+                        <Link href="/contact" className={`text-sm ${pathName === '/contact' ? 'font-bold' : 'font-normal'}`}>
+                            Contact
+                        </Link>
                     </li>
                 </>
         }
+
         <li>
             <a className={`text-sm gap-0 disabled-link text-primary ${pathName === '/other-services' ? 'font-bold' : 'font-normal'}`} href={'/other-services'}>
                 <span>Other Services</span>
@@ -128,8 +166,16 @@ const Navbar = () => {
                             <div className="w-[32px] relative h-[32px] rounded-full bg-primary  text-white text-base font-normal">
                                 <span className="absolute top-1/2 right-1/2 transform -translate-y-1/2 translate-x-1/2">{firstLetter}</span>
                             </div>
-                            <div>
-                                <h4 className="text-sm inter font-semibold w-fit">{user?.displayName}</h4>
+                            <div className="dropdown dropdown-hover">
+                                <h4 tabIndex={0} role="button" className="text-sm inter font-semibold w-fit">{user?.displayName}</h4>
+                                <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-52 -right-[20%] px-0 py-2 rounded-lg">
+                                    <li>
+                                        <button onClick={() => handleLogOut()}
+                                            className="text-base border-none shadow-none inter font-normal hover:bg-[#F9FAFB] rounded-none w-full">
+                                            Logout
+                                        </button>
+                                    </li>
+                                </ul>
                             </div>
                             <Dropdown color={'black'} />
                         </div>
@@ -141,68 +187,6 @@ const Navbar = () => {
                     </>
             }
         </>
-
-
-    const navItems = <>
-        {
-            user ?
-                <>
-                    <div className="dropdown dropdown-end z-50">
-                        <div tabIndex={0} role="button" className="text-base tracking-wider flex items-center gap-2 font-normal hover:text-blue-600"><span>Janitorial Appointments</span> <FaChevronDown size={'0.7rem'} /></div>
-                        <ul tabIndex={0} className={`dropdown-content menu bg-base-100 mt-4 z-[1] w-[350px] border border-gray-200 py-6 shadow rounded-none px-0`}>
-                            <li className="text-sm text-primary hover:bg-white px-6">Home</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Dashboard</li>
-                            <hr className="mt-2" />
-                            <li className="text-sm text-primary hover:bg-white px-6 mt-4">Search</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1" onClick={() => document.getElementById('my_modal_3').showModal()}>Exclusive Leads</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1" onClick={() => document.getElementById('my_modal_4').showModal()}>LayUps (Warm Leads)</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1" onClick={() => document.getElementById('my_modal_5').showModal()}>Opportunities</li>
-                            <Link href='/decisionmakersinglesearch'><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Single Decision Maker</li></Link>
-                            <Link href='/decisionmakersearch'><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Decision Makers</li></Link>
-                            <Link href="/localsearch"><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Local Business</li></Link>
-                            <hr className="mt-2" />
-                            <li className="text-sm text-primary hover:bg-white px-6 mt-4">List</li>
-                            <Link href="/leadlist">
-                                <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Lead Lists</li>
-                            </Link>
-                            <Link href='/masterlist'>
-                                <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Master Lists</li>
-                            </Link>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Solicitations Lists</li>
-                            <hr className="mt-2" />
-                            <li className="text-sm text-primary hover:bg-white px-6 mt-4">Resources</li>
-                            <a href="/blogs"><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Blog</li></a>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Free Lists</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Pay Rate Checker</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Cleaning Calculators</li>
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Help</li>
-                            <hr className="mt-2" />
-                            <li className="text-sm text-primary hover:bg-white px-6 mt-4">Company Information</li>
-                            <a href={'/profile'}><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Profile</li></a>
-                            {/* <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Email Credentials</li> */}
-                            <a href="emailtemplates">
-                                <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">Email Templates</li>
-                            </a>
-                            <a href={'/subscription'}><li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1">My Subscription</li></a>
-                            <hr className="mt-2" />
-                            <li className="text-base px-6 hover:bg-gray-200 cursor-pointer py-1 mt-4">Logout</li>
-                        </ul>
-                    </div>
-                </>
-                :
-                <>
-                    {/* <li>
-                        <Link className="text-sm text-primary" href={'/login'}>Login</Link>
-                    </li>
-
-                    <li>
-                        <Link className="text-sm text-primary" href={'/register'}>Sign Up</Link>
-                    </li> */}
-
-
-                </>
-        }
-    </>
 
     const [scrolled, setScrolled] = useState(false);
     const props = useSpring({
