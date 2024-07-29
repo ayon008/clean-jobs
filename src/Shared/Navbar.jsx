@@ -106,22 +106,22 @@ const Navbar = () => {
                         </a>
                         <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
                             <li>
-                                <Link href="/exclusive-leads" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Exclusive Leads</Link>
+                                <Link href="/search/exclusive-leads" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Exclusive Leads</Link>
                             </li>
                             <li>
-                                <Link href="/layups" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">LayUps (Warm leads)</Link>
+                                <Link href="/search/layups" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">LayUps (Warm leads)</Link>
                             </li>
                             <li>
-                                <Link href="/opportunities" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Opportunities</Link>
+                                <Link href="/search/opportunities" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Opportunities</Link>
                             </li>
                             <li>
-                                <Link href="/single-decision-maker" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Single Decision Maker</Link>
+                                <Link href="/search/single-decision-maker" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Single Decision Maker</Link>
                             </li>
                             <li>
-                                <Link href="/decision-makers" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Decision Makers</Link>
+                                <Link href="/search/decision-makers" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Decision Makers</Link>
                             </li>
                             <li>
-                                <Link href="/local-businesses" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Local Businesses</Link>
+                                <Link href="/search/local-businesses" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Local Businesses</Link>
                             </li>
                         </ul>
                     </li>
