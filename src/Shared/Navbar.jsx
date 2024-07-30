@@ -28,7 +28,7 @@ const Navbar = () => {
 
     const navStarts = <>
         <li>
-            <Link className={`text-sm mr-3 ${pathName === '/about' ? 'font-bold' : 'font-normal'}`} href={'/about'}>About</Link>
+            <Link className={`text-sm mr-3 ${pathName.startsWith('/about') ? 'font-bold' : 'font-normal'}`} href={'/about'}>About</Link>
         </li>
         {
             user ?
@@ -43,7 +43,7 @@ const Navbar = () => {
                         </ul>
                     </li>
                     <li className="dropdown dropdown-hover">
-                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/list' ? 'font-bold' : 'font-normal'}`}>
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName.startsWith('/list') ? 'font-bold' : 'font-normal'}`}>
                             <span>List</span>
                             <Dropdown color={"#6E7C87"} />
                         </a>
@@ -54,13 +54,13 @@ const Navbar = () => {
                         </ul>
                     </li>
                     <li className="dropdown dropdown-hover">
-                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/resources' ? 'font-bold' : 'font-normal'}`} href={'/resources'}>
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName.startsWith('/resources') ? 'font-bold' : 'font-normal'}`} href={'/resources'}>
                             <span>Resources</span>
                             <Dropdown color={"#6E7C87"} />
                         </a>
                         <ul tabIndex={0} className="dropdown-content menu bg-white border z-[1] w-80 px-0 py-2 rounded-lg">
                             <li>
-                                <Link href="/blog" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Blog</Link>
+                                <Link href="/resources/blogs" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Blog</Link>
                             </li>
                             <li>
                                 <Link href="/free-lists" className="text-base inter font-normal hover:bg-[#F9FAFB] rounded-none pl-5">Free Lists</Link>
@@ -77,7 +77,7 @@ const Navbar = () => {
                         </ul>
                     </li>
                     <li className="dropdown dropdown-hover">
-                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/company-information' ? 'font-bold' : 'font-normal'}`} href={'/company-information'}>
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName.startsWith('/company-information') ? 'font-bold' : 'font-normal'}`} href={'/company-information'}>
                             <span>Company Information</span>
                             <Dropdown color={"#6E7C87"} />
                         </a>
@@ -100,7 +100,7 @@ const Navbar = () => {
                         </ul>
                     </li>
                     <li className="dropdown dropdown-hover">
-                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName === '/search' ? 'font-bold' : 'font-normal'}`} href={'/search'}>
+                        <a tabIndex={0} role="button" className={`text-sm gap-0 disabled-link ${pathName.startsWith('/search') ? 'font-bold' : 'font-normal'}`} href={'/search'}>
                             <span>Search</span>
                             <Dropdown color={"#6E7C87"} />
                         </a>
@@ -130,17 +130,17 @@ const Navbar = () => {
                 :
                 <>
                     <li>
-                        <Link href="/blog" className={`text-sm ${pathName === '/blog' ? 'font-bold' : 'font-normal'}`}>
-                            Blog
+                        <Link href="/blogs" className={`text-sm ${pathName.startsWith('/blogs') ? 'font-bold' : 'font-normal'}`}>
+                            Blogs
                         </Link>
                     </li>
                     <li>
-                        <Link href="/otherservices" className={`text-sm ${pathName === '/otherservices' ? 'font-bold' : 'font-normal'}`}>
+                        <Link href="/otherservices" className={`text-sm ${pathName.startsWith('/otherservices') ? 'font-bold' : 'font-normal'}`}>
                             Other Services
                         </Link>
                     </li>
                     <li>
-                        <Link href="/contact" className={`text-sm ${pathName === '/contact' ? 'font-bold' : 'font-normal'}`}>
+                        <Link href="/contact" className={`text-sm ${pathName.startsWith('/contact') ? 'font-bold' : 'font-normal'}`}>
                             Contact
                         </Link>
                     </li>
@@ -148,7 +148,7 @@ const Navbar = () => {
         }
 
         <li>
-            <a className={`text-sm gap-0 disabled-link text-primary ${pathName === '/other-services' ? 'font-bold' : 'font-normal'}`} href={'/other-services'}>
+            <a className={`text-sm gap-0 disabled-link text-primary ${pathName.startsWith('/other-services') ? 'font-bold' : 'font-normal'}`} href={'/other-services'}>
                 <span>Other Services</span>
                 <ArrowRight />
             </a>
