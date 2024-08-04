@@ -7,10 +7,10 @@ const Logo = () => {
         <Link href="/" className="btn btn-ghost">
             <Image src={logo} alt="logo" className="w-[25px] h-[40px]" />
             <div className="text-left">
-                <span className="text-lg font-bold">
+                <span className="md:text-lg text-xs font-bold">
                     <span className="text-primary">Clean</span>Jobs
                 </span>
-                <p className="text-xs text-secondary font-normal">Clean, Green, Reliable</p>
+                <p className="md:text-xs text-[8px] text-secondary font-normal">Clean, Green, Reliable</p>
             </div>
         </Link>
     );

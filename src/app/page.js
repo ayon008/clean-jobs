@@ -19,146 +19,144 @@ export default function Home() {
       <Banner />
 
       {/* Section */}
-      <div className="max-w-screen-2xl mx-auto px-10">
+      <div className="max-w-screen-2xl mx-auto md:px-10 px-6">
         <h5 className="text-secondary nunito text-center font-light text-xl mt-20 mb-4">What We Offer</h5>
         <SectionTitles heading={'Maximize results with minimal effort'} subHeading={"Get cleaning jobs sent straight to your inbox, easily find and delegate tasks to subcontractors, and engage with decision makers automatically"} />
 
-        <div className="mt-32 flex">
-          <div className="w-fit pb-10 pt-10 pr-10 bg-[#F4F4F4] rounded-[32px]">
-            <Image src={side2} className="h-[400px] w-auto" alt="" />
+        <div className="md:mt-32 mt-14 flex md:gap-0 gap-4 md:flex-row flex-col">
+          <div className="md:w-fit w-full md:pb-10 md:pt-10 md:pr-10 pb-6 pt-6 pr-6 bg-[#F4F4F4] rounded-[32px]">
+            <Image src={side2} className="md:h-[400px] md:w-auto w-full h-auto" alt="" />
           </div>
-          <div className="space-y-8 w-1/2 my-auto pl-24">
-            <h5 className="text-primary poppins font-medium text-lg">Upcoming Cleaning Project Access</h5>
-            <h1 className="text-5xl poppins font-semibold">Uncover Top <br /> Cleaning Jobs</h1>
-            <p className="poppins font-normal">Access upcoming cleaning projects, including office and construction clean-ups, all gathered in one place.</p>
+          <div className="md:space-y-8 space-y-3 md:w-1/2 w-full md:my-auto md:pl-24">
+            <h5 className="text-primary poppins font-medium md:text-lg text-sm">Upcoming Cleaning Project Access</h5>
+            <h1 className="md:text-5xl text-3xl poppins font-semibold">Uncover Top <br /> Cleaning Jobs</h1>
+            <p className="poppins font-normal text-sm">Access upcoming cleaning projects, including office and construction clean-ups, all gathered in one place.</p>
             <div className="space-y-1">
               <div className="flex items-center gap-[11px]">
                 <div className="">
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Effortless Access</p>
+                <p className="md:text-lg text-sm font-medium poppins">Effortless Access</p>
               </div>
               <div className="flex items-center gap-[11px]">
                 <div className="">
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Enhanced Planning</p>
+                <p className="md:text-lg text-sm font-medium poppins">Enhanced Planning</p>
               </div>
               <div className="flex items-center gap-[11px]">
                 <div className="">
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Expanded Opportunities</p>
+                <p className="md:text-lg text-sm font-medium poppins">Expanded Opportunities</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-32 flex flex-row-reverse">
-          <div className="w-fit pb-10 pt-10 pl-10 bg-[#F4F4F4] rounded-[32px]">
-            <Image src={side2} className="h-[400px] w-auto" alt="" />
+        <div className="md:mt-32 mt-14 flex md:gap-0 gap-4 md:flex-row-reverse flex-col">
+          <div className="md:w-fit w-full md:pb-10 md:pt-10 md:pl-10 pb-6 pt-6 pl-6 bg-[#F4F4F4] rounded-[32px]">
+            <Image src={side2} className="md:h-[400px] md:w-auto w-full h-auto" alt="" />
           </div>
-          <div className="space-y-8 w-1/2 my-auto pr-24">
-            <h5 className="text-primary poppins font-medium text-lg">Local Decision Maker Discovery</h5>
-            <h1 className="text-5xl poppins font-semibold">Reach Decision Makers Instantly & Effortlessly</h1>
-            <p className="poppins font-normal">Discover key decision makers nearby and initiate contact seamlessly</p>
+          <div className="md:space-y-8 space-y-3 md:w-1/2 w-full md:my-auto md:pr-24">
+            <h5 className="text-primary poppins font-medium md:text-lg text-sm">Local Decision Maker Discovery</h5>
+            <h1 className="md:text-5xl text-3xl poppins font-semibold">Reach Decision Makers Instantly & Effortlessly</h1>
+            <p className="poppins font-normal text-sm">Discover key decision makers nearby and initiate contact seamlessly</p>
+            <div className="space-y-1">
+              <div className="flex items-center gap-[11px]">
+                <div>
+                  <FaCheck />
+                </div>
+                <p className="md:text-lg text-sm font-medium poppins">Effortless Networking</p>
+              </div>
+              <div className="flex items-center gap-[11px]">
+                <div>
+                  <FaCheck />
+                </div>
+                <p className="md:text-lg text-sm font-medium poppins">Seamless Outreach</p>
+              </div>
+              <div className="flex items-center gap-[11px]">
+                <div>
+                  <FaCheck />
+                </div>
+                <p className="md:text-lg text-sm font-medium poppins">Enhanced Collaboration</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="md:mt-32 mt-14 flex md:gap-0 gap-4 md:flex-row flex-col">
+          <div className="md:w-1/2 w-full bg-[#F4F4F4] rounded-[32px]">
+            <Image src={side1} className="md:w-auto mx-auto md:h-[500px] w-3/4" alt="" />
+          </div>
+          <div className="space-y-6 md:w-1/2 w-full md:my-auto md:pl-24">
+            <h5 className="text-primary poppins font-medium md:text-lg text-sm">Connect with Cleaning Subcontractors</h5>
+            <h1 className="md:text-5xl text-3xl poppins font-semibold">Share your projects and engage with a wide network of subcontractors</h1>
+            <p className="poppins font-normal text-sm">Posting your opportunities connects you with many commercial cleaning subcontractors. Begin conversations when contractors show interest in your opportunity</p>
             <div className="space-y-1">
               <div className="flex items-center gap-[11px]">
                 <div className="">
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Effortless Networking</p>
+                <p className="md:text-lg text-sm font-medium poppins">Broad Reach</p>
               </div>
               <div className="flex items-center gap-[11px]">
                 <div className="">
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Seamless Outreach</p>
+                <p className="md:text-lg text-sm font-medium poppins">Efficient Communication</p>
               </div>
               <div className="flex items-center gap-[11px]">
                 <div className="">
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Enhanced Collaboration</p>
+                <p className="md:text-lg text-sm font-medium poppins">Increased Collaboration</p>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="mt-32 flex">
-          <div className="w-1/2 bg-[#F4F4F4] rounded-[32px]">
-            <Image src={side1} className="w-auto mx-auto h-[500px]" alt="" />
+        <div className="md:mt-32 mt-14 flex md:gap-0 gap-4 md:flex-row-reverse flex-col">
+          <div className="md:w-1/2 w-full bg-[#F4F4F4] py-10 rounded-[32px]">
+            <Image src={side3} className="md:w-auto mx-auto md:h-[520px] w-1/2 h-auto" alt="" />
           </div>
-          <div className="space-y-6 w-1/2 my-auto pl-24">
-            <h5 className="text-primary poppins font-medium text-lg">Connect with Cleaning Subcontractors</h5>
-            <h1 className="text-5xl poppins font-semibold">Share your projects and engage with a wide network of subcontractors</h1>
-            <p className="poppins font-normal">Posting your opportunities connects you with many commercial cleaning subcontractors. Begin conversations when contractors show interest in your opportunity</p>
+          <div className="space-y-6 md:w-1/2 w-full md:my-auto md:pr-24">
+            <h5 className="text-primary poppins font-medium md:text-lg text-sm">Automated Follow-Up Emails</h5>
+            <h1 className="md:text-5xl text-3xl poppins font-semibold">Seamless follow-up email automation</h1>
+            <p className="poppins font-normal text-sm">We will send automated follow-up emails to your leads after a specified number of days if you don't open or respond to your emails within a set timeframe</p>
             <div className="space-y-1">
               <div className="flex items-center gap-[11px]">
-                <div className="">
+                <div>
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Broad Reach</p>
+                <p className="md:text-lg text-sm font-medium poppins">Consistent Engagement</p>
               </div>
               <div className="flex items-center gap-[11px]">
-                <div className="">
+                <div>
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Efficient Communication</p>
+                <p className="md:text-lg text-sm font-medium poppins">Improved Efficiency</p>
               </div>
               <div className="flex items-center gap-[11px]">
-                <div className="">
+                <div>
                   <FaCheck />
                 </div>
-                <p className="text-lg font-medium poppins">Increased Collaboration</p>
+                <p className="md:text-lg text-sm font-medium poppins">Enhanced Conversion</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-32 flex flex-row-reverse">
-          <div className="w-1/2 bg-[#F4F4F4] py-10 rounded-[32px]">
-            <Image src={side3} className="w-auto mx-auto h-[520px]" alt="" />
-          </div>
-          <div className="space-y-8 w-1/2 my-auto pr-24">
-            <h5 className="text-primary poppins font-medium text-lg">Automated Follow-Up Emails</h5>
-            <h1 className="text-5xl poppins font-semibold">Seamless follow-up email automation</h1>
-            <p className="poppins font-normal">We will send automated follow-up emails to your leads after a specified number of days if you don't open or response to your emails within a set timeframe</p>
-            <div className="space-y-1">
-              <div className="flex items-center gap-[11px]">
-                <div className="">
-                  <FaCheck />
-                </div>
-                <p className="text-lg font-medium poppins">Consistent Engagement</p>
-              </div>
-              <div className="flex items-center gap-[11px]">
-                <div className="">
-                  <FaCheck />
-                </div>
-                <p className="text-lg font-medium poppins">Improved Efficiency</p>
-              </div>
-              <div className="flex items-center gap-[11px]">
-                <div className="">
-                  <FaCheck />
-                </div>
-                <p className="text-lg font-medium poppins">Enhanced Conversion</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div className="mt-40">
+        <div className="md:mt-40 mt-20">
           <SectionTitles heading={"What our customers say"} subHeading={"Thank you for your trust in Crypt Land! We are grateful for your feedback and are committed to providing the best [products/services offered]. Read what our clients have to say about their experience with us."} />
         </div>
         <Reviews />
         {/*  */}
-        <div className="mt-40">
+        <div className="md:mt-40 mt-20">
           <SectionTitles heading={"Useful utilities & Extra advantages"} subHeading={"Unlocking Efficiency: Useful Utilities and Extra Advantages to Boost Productivity and Simplify Operations"} />
           <Utilities />
         </div>
       </div>
-      <div className="bg-[#EBFAEF] py-48  max-w-screen-2xl mx-auto">
+      <div className="bg-[#EBFAEF] md:py-48 py-12 max-w-screen-2xl mx-auto">
         <SectionTitles heading={"Find the right plan"} subHeading={"Invest in your company's future with our comprehensive financial solution. Contact us for pricing details and see how we can help you streamline your finances and reach your business goals."} />
         <Pricing />
       </div>

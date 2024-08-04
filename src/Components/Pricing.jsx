@@ -2,7 +2,7 @@ import TickCircle from './TickCircle';
 
 const Pricing = () => {
     return (
-        <div className='px-10 grid grid-cols-3 gap-6 mt-36'>
+        <div className='md:px-10 px-6 grid md:grid-cols-3 grid-cols-1 gap-6 md:mt-36 mt-16'>
             <div className='bg-white rounded-[30px] py-12 px-10'>
                 <h3 className='text-2xl font-medium nunito'>Free</h3>
                 <small className='nunito text-xs font-normal'>Free To Start</small>

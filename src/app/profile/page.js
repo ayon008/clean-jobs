@@ -1,182 +1,94 @@
-import React from 'react';
+import PageTitle from "@/Shared/PageTitle";
 
 const page = () => {
-
-    const states = [
-        'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
-        'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts',
-        'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-        'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-        'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-        'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-    ];
-
     return (
-        <div className="flex gap-5 px-16 py-10 max-md:flex-wrap">
-            <div className="flex flex-col grow shrink-0 my-auto basis-0 w-fit max-md:max-w-full p-8 shadow-2xl">
-                <div className="flex gap-5 justify-between w-full max-md:flex-wrap max-md:max-w-full">
-                    <div className="flex flex-col">
-                        <div className="text-2xl font-medium text-slate-700">
-                            Welcome, Amanda
-                        </div>
-                        <div className="mt-6 text-base text-stone-400">
-                            Tue June 2022
-                        </div>
+        <div className="py-40 2xl:pt-60 px-10">
+            <PageTitle heading={'Profile'} subHeading={'Lorem ipsum dolor sit amet cons ectetur. Id aenean in a est.'} />
+            <form className="mt-20">
+                <div className="grid grid-cols-2 justify-between gap-10">
+                    <div className="form-control relative">
+                        <label className="label absolute bg-white left-[2%] -top-[50%]">
+                            <span className="label-text text-primary font-normal text-base poppins">Company Name</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Enter your company name"
+                            className="input input-bordered rounded-[10px] bg-white border border-[#5C6272]"
+                        />
+                    </div>
+                    <div className="form-control relative">
+                        <label className="label absolute bg-white left-[2%] -top-[50%]">
+                            <span className="label-text text-primary font-normal text-base poppins">Main Contact</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Enter your name"
+                            className="input input-bordered rounded-[10px] bg-white border border-[#5C6272]"
+                        />
+                    </div>
+                    <div className="form-control relative">
+                        <label className="label absolute bg-white left-[2%] -top-[50%]">
+                            <span className="label-text text-primary font-normal text-base poppins">Company Mail</span>
+                        </label>
+                        <input
+                            type="email"
+                            placeholder="Enter your business email address"
+                            className="input input-bordered rounded-[10px] bg-white border border-[#5C6272]"
+                        />
+                    </div>
+                    <div className="form-control relative">
+                        <label className="label absolute bg-white left-[2%] -top-[50%]">
+                            <span className="label-text text-primary font-normal text-base poppins">Phone Number</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Enter your phone number"
+                            className="input input-bordered rounded-[10px] bg-white border border-[#5C6272]"
+                        />
+                    </div>
+                    <div className="form-control relative">
+                        <label className="label absolute bg-white left-[2%] -top-[50%]">
+                            <span className="label-text text-primary font-normal text-base poppins">Company Website</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Enter your company website"
+                            className="input input-bordered rounded-[10px] bg-white border border-[#5C6272]"
+                        />
+                    </div>
+
+                    <div className="form-control relative">
+                        <label className="label absolute bg-white left-[2%] -top-[50%]">
+                            <span className="label-text text-primary font-normal text-base poppins">Social Media</span>
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Enter your social media link"
+                            className="input input-bordered rounded-[10px] bg-white border border-[#5C6272]"
+                        />
+                    </div>
+                    <div className="form-control relative">
+                        <label className="label absolute bg-white left-[2%] -top-[50%]">
+                            <span className="label-text text-primary font-normal text-base poppins">Company Logo</span>
+                        </label>
+                        <input
+                            type="file"
+                            placeholder="Enter your social media link"
+                        />
+                    </div>
+                    <div className="form-control relative">
+                        <label className="label absolute bg-white left-[2%] -top-[50%]">
+                            <span className="label-text text-primary font-normal text-base poppins">Social Media</span>
+                        </label>
+                        <textarea
+                            rows={8}
+                            type="text"
+                            placeholder="Enter your social media link"
+                            className="input input-bordered rounded-[10px] bg-white border border-[#5C6272]"
+                        />
                     </div>
                 </div>
-                <div>
-                    <form className="card-body p-0 my-4 space-y-2">
-                        <h2 className='text-3xl text-green-500 font-semibold mt-6'>Company Information</h2>
-                        <div className='flex lg:flex-row flex-col items-center gap-4'>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Company Name</span>
-                                </label>
-                                <input type="text" placeholder="" className="input input-bordered" required />
-                                <div className="label">
-                                    <span className="label-text-alt">*required</span>
-                                </div>
-                            </div>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Main Contact</span>
-                                </label>
-                                <input type="text" placeholder="" className="input input-bordered" required />
-                                <div className="label">
-                                    <span className="label-text-alt">*required</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='flex lg:flex-row flex-col items-center gap-4'>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Email</span>
-                                </label>
-                                <input type="email" placeholder="" className="input input-bordered" required />
-                                <div className="label">
-                                    <span className="label-text-alt">*required</span>
-                                </div>
-                            </div>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Phone Number</span>
-                                </label>
-                                <input type="text" placeholder="" className="input input-bordered" required />
-                                <div className="label">
-                                    <span className="label-text-alt">*required</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='flex lg:flex-row flex-col items-center gap-4'>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Add a company logo</span>
-                                </label>
-                                <input type="file" className="file-input file-input-bordered w-full lg:max-w-1/2 custom-file-input" />
-                            </div>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Company website</span>
-                                </label>
-                                <input type="text" placeholder="" className="input input-bordered" required />
-                            </div>
-                        </div>
-                        <div className='flex lg:flex-row flex-col items-center gap-4'>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Service Cities</span>
-                                </label>
-                                <input type="email" placeholder="" className="input input-bordered" required />
-                                <div className="label">
-                                    <span className="label-text-alt">*required</span>
-                                </div>
-                            </div>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Service State</span>
-                                </label>
-                                <select className="select text-primary text-base select-bordered w-full ">
-                                    <option disabled selected>Pick Your State</option>
-                                    {
-                                        states?.map((state, index) => <option key={index} value={state}>{state}</option>)
-                                    }
-                                </select>
-                                <div className="label">
-                                    <span className="label-text-alt">*required</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='flex lg:flex-row flex-col items-center gap-4'>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Service Cities 2</span>
-                                </label>
-                                <input type="email" placeholder="" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Service State 2</span>
-                                </label>
-                                <select className="select text-primary text-base select-bordered w-full ">
-                                    <option disabled selected>Pick Your State</option>
-                                    {
-                                        states?.map((state, index) => <option key={index} value={state}>{state}</option>)
-                                    }
-                                </select>
-                            </div>
-                        </div>
-                        <div className='flex lg:flex-row flex-col items-center gap-4'>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Service Cities 3</span>
-                                </label>
-                                <input type="email" placeholder="" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Service State 3</span>
-                                </label>
-                                <select className="select text-primary text-base select-bordered w-full ">
-                                    <option disabled selected>Pick Your State</option>
-                                    {
-                                        states?.map((state, index) => <option key={index} value={state}>{state}</option>)
-                                    }
-                                </select>
-                            </div>
-                        </div>
-                        <h2 className='text-3xl text-green-500 font-semibold mt-6'>Company Details</h2>
-                        <div className='flex lg:flex-row flex-col items-center gap-4'>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Year in Business</span>
-                                </label>
-                                <input type="number" placeholder="" className="input input-bordered" required />
-                                <div className="label">
-                                    <span className="label-text-alt">*required</span>
-                                </div>
-                            </div>
-                            <div className="form-control w-full lg:max-w-1/2">
-                                <label className="label">
-                                    <span className="label-text text-primary text-sm">Numbers of employee</span>
-                                </label>
-                                <input type="number" placeholder="" className="input input-bordered" required />
-                                <div className="label">
-                                    <span className="label-text-alt">*required</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='form-control'>
-                            <label className="label">
-                                <span className="label-text text-primary text-sm">Company Details</span>
-                            </label>
-                            <textarea className="textarea textarea-bordered" placeholder="Bio" rows={6}></textarea>
-                        </div>
-                        <div className="form-control mt-6">
-                            <button className="btn btn-primary bg-green-500 text-white">Update</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            </form>
         </div>
     );
 };

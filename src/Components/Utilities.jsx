@@ -6,10 +6,10 @@ import image4 from '../../public/assets/a8f801866d7192f7cdc61bead854d566.png';
 const Utilities = () => {
     return (
         <div>
-            <div className="grid grid-cols-2 grid-rows-2 gap-20 w-fit mx-auto mt-20 mb-40">
+            <div className="grid md:grid-cols-2 md:grid-rows-2 grid-rows-4 grid-cols-1 gap-20 w-fit mx-auto mt-20 mb-40">
                 <div className='w-full h-full flex flex-col'>
-                    <div className="bg-[#C7F2AB] w-full h-[400px] flex flex-col rounded-3xl">
-                        <Image src={image1} className='h-[300px] m-auto w-auto' alt="" />
+                    <div className="bg-[#C7F2AB] w-full md:h-[420px] h-[325px] flex flex-col rounded-[20px]">
+                        <Image src={image1} className='md:h-[300px] md:w-auto m-auto rounded-[12px] w-[90%] h-[250px]' alt="" />
                     </div>
                     <div className="mt-10 space-y-10">
                         <h3 className="inter font-bold text-2xl">Smart Scrubbers: Cleaning Estimators</h3>
@@ -20,8 +20,8 @@ const Utilities = () => {
                     </div>
                 </div>
                 <div className='w-full h-full flex flex-col'>
-                    <div className="bg-[#C7F2AB] w-full h-[400px] flex flex-col rounded-3xl">
-                        <Image src={image2} className='h-[264px] m-auto w-auto' alt="" />
+                    <div className="bg-[#C7F2AB] w-full md:h-[420px] h-[325px] flex flex-col rounded-[20px]">
+                        <Image src={image2} className='h-[241px] md:h-[264px] m-auto md:w-auto w-[90%] rounded-[12px]' alt="" />
                     </div>
                     <div className="mt-10 mb-10 space-y-10">
                         <h3 className="inter font-bold text-2xl">Opportunity Nexus: Cleaning Project Manager</h3>
@@ -32,8 +32,8 @@ const Utilities = () => {
                     </div>
                 </div>
                 <div className='w-full h-full flex flex-col'>
-                    <div className="bg-[#C7F2AB] w-full h-[400px] flex flex-col rounded-3xl">
-                        <Image src={image2} className='h-[264px] m-auto w-auto' alt="" />
+                    <div className="bg-[#C7F2AB] w-full md:h-[420px] h-[325px] flex flex-col rounded-[20px]">
+                        <Image src={image2} className='md:h-[264px] h-[240px] m-auto md:w-auto w-[90%] rounded-[12px]' alt="" />
                     </div>
                     <div className="mt-10 space-y-10">
                         <h3 className="inter font-bold text-2xl">Lead Forge: Custom Lead Generator</h3>
@@ -44,8 +44,8 @@ const Utilities = () => {
                     </div>
                 </div>
                 <div className='w-full h-full flex flex-col'>
-                    <div className="bg-[#C7F2AB] w-full h-[400px] flex flex-col rounded-3xl">
-                        <Image src={image4} className='h-[312px] w-auto m-auto' alt="" />
+                    <div className="bg-[#C7F2AB] w-full md:h-[420px] h-[325px] flex flex-col rounded-[20px]">
+                        <Image src={image4} className='md:h-[312px] h-[250px] md:w-auto w-[90%] m-auto rounded-[12px]' alt="" />
                     </div>
                     <div className="mt-10 space-y-10">
                         <h3 className="inter font-bold text-2xl">Inbox Opportunities: Personalized Alerts</h3>
